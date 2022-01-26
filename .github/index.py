@@ -31,6 +31,7 @@ def main():
 
     Checker = Norminette()
     send_webhooks(Checker, my_input)
+    
 
     # print(f"::set-output name=myOutput::{my_output}")
 
