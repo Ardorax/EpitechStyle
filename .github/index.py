@@ -26,13 +26,12 @@ def handle_response(response):
         exit(1)
 
 def main():
-    #my_input = os.environ["INPUT_MYINPUT"]
+    my_input = os.environ["INPUT_URL"]
 
-    #my_output = f"Hello {my_input}"
     Checker = Norminette()
-    send_webhooks(Checker, "https://discord.com/api/webhooks/934427093310275594/Msub6IEEB1PaD7I3nFEve5-dBMUI2eD7S_6d_BsGY4LzeWRbcT-wn_9YhUC4f__cozX8")
+    send_webhooks(Checker, my_input)
 
-    #print(f"::set-output name=myOutput::{my_output}")
+    # print(f"::set-output name=myOutput::{my_output}")
 
 
 if __name__ == "__main__":
