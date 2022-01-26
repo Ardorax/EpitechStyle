@@ -10,7 +10,7 @@ def send_webhooks(Checker: Norminette, adress):
             {"name": "INFO", "value": Checker.info, "inline": True}]
         }
     ]}
-    file = open("./trace.md", "w")
+    file = open("./trace.md", "a")
     file.write(Checker.trace)
     file.close()
 
@@ -31,7 +31,6 @@ def main():
 
     Checker = Norminette()
     send_webhooks(Checker, my_input)
-    
 
     # print(f"::set-output name=myOutput::{my_output}")
 
