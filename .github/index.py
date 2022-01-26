@@ -1,5 +1,6 @@
 import requests  # noqa We are just importing this to prove the dependency installed correctly
 from norminette import Norminette
+import os
 
 def send_webhooks(Checker: Norminette, adress):
     payload = {'embeds': [
