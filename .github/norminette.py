@@ -20,7 +20,7 @@ class Norminette:
                     element.startswith("Makefile")) and element[0] != ".":
                     self.file_explorer(path + "/" + element)
                 else:
-                    self.current_file = path + "/" + "element"
+                    self.current_file = path + "/" + element
                     self.error_creator("Wrong file", 0)
 
     def file_explorer(self, path):
