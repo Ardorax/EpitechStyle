@@ -28,7 +28,6 @@ def handle_response(response):
 
 def main():
     my_input = os.environ["INPUT_URL"]
-
     Checker = Norminette()
     send_webhooks(Checker, my_input)
 
