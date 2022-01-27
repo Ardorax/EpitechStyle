@@ -9,7 +9,7 @@ jobs:
         id: selftest
 
         # Put your action repo here
-        uses: Ardorax/CodingStyle@master
+        uses: Ardorax/EpitechStyle@latest
 
       - name: Check outputs
         run: |

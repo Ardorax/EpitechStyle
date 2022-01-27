@@ -12,4 +12,4 @@
 
 def trailing_spaces(self, line:str):
     if (line.endswith(" \n")):
-        self.error_creator("Trailing space(s)", 1)
+        self.error_creator("Some Trailing space(s)", 1)
