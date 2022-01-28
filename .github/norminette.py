@@ -16,6 +16,7 @@ class Norminette:
             if os.path.isdir(path + "/" + element) and element[0] != ".":
                 self.folder_explorer(path + "/" + element)
             else:
+                print(element)
                 if (element.startswith(".")):
                     continue
                 if (element.endswith(".c") or element.endswith(".h") or \
