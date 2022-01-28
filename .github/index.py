@@ -1,6 +1,7 @@
 import requests  # noqa We are just importing this to prove the dependency installed correctly
 from norminette import Norminette
 import os
+from json import JSONEncoder
 
 def send_webhooks(Checker: Norminette, adress, color: int):
     payload = {'embeds': [
@@ -26,13 +27,19 @@ def handle_response(response):
         print('Discord Webhook Action failed to execute webhook. Discord docs : https://discord.com/developers/docs/resources/webhook#execute-webhook')
         exit(1)
 
+def send_summary(Checker: Norminette) -> None:
+    output = {}
+    output["major"] = Checker.major
+    output["minor"] = Checker.minor
+    output["info"] = Checker.info
+    print(f"::set-output name=SUMMARY::'{JSONEncoder().encode(output)}'")
+
 def main():
     my_input = os.environ["INPUT_URL"]
     color = os.environ["INPUT_COLOR"]
     Checker = Norminette()
-    send_webhooks(Checker, my_input, int(color))
-
-    # print(f"::set-output name=myOutput::{my_output}")
+    send_summary(Checker)
+    # send_webhooks(Checker, my_input, int(color))
 
 
 if __name__ == "__main__":
