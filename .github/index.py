@@ -32,7 +32,7 @@ def send_summary(Checker: Norminette) -> None:
     output["major"] = Checker.major
     output["minor"] = Checker.minor
     output["info"] = Checker.info
-    print(f"::set-output name=SUMMARY::'{JSONEncoder().encode(output)}'")
+    print(f"::set-output name=SUMMARY::{JSONEncoder().encode(output)}")
 
 def main():
     color = os.environ["INPUT_COLOR"]
