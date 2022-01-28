@@ -12,6 +12,7 @@ class Norminette:
         self.folder_explorer(".")
 
     def folder_explorer(self, path) -> None:
+        print("avant la boucle")
         for element in os.listdir(path):
             print("element : " + str(element))
             if os.path.isdir(path + "/" + element) and element[0] != ".":

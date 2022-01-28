@@ -32,8 +32,10 @@ def send_summary(Checker: Norminette) -> None:
     print(f"::set-output name=SUMMARY::{JSONEncoder().encode(output)}")
 
 def main():
-    color = os.environ["INPUT_COLOR"]
-    print("JE suis LA")
+    # color = os.environ["INPUT_COLOR"]
+    print("JE suis LA files : " + str(len(os.listdir("."))))
+    for i in os.listdir("."):
+        print(i)
     Checker = Norminette()
     file = open("./trace.md", "a")
     file.write(Checker.trace)
