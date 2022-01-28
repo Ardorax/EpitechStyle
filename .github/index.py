@@ -33,6 +33,7 @@ def send_summary(Checker: Norminette) -> None:
 
 def main():
     color = os.environ["INPUT_COLOR"]
+    print("JE suis LA")
     Checker = Norminette()
     file = open("./trace.md", "a")
     file.write(Checker.trace)
