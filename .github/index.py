@@ -11,15 +11,12 @@ def send_webhooks(Checker: Norminette, adress, color: int):
             {"name": "INFO", "value": Checker.info, "inline": True}]
         }
     ]}
-    file = open("./trace.md", "a")
-    file.write(Checker.trace)
-    file.close()
 
-    response = requests.post(adress, json=payload)
+    """response = requests.post(adress, json=payload)
     handle_response(response)
     response = requests.post(adress, data={}, files={'upload_file': open("./trace.md", "rb")})
     file.close()
-    handle_response(response)
+    handle_response(response)"""
 
 def handle_response(response):
     print("Send Webhooks !")
@@ -37,6 +34,10 @@ def send_summary(Checker: Norminette) -> None:
 def main():
     color = os.environ["INPUT_COLOR"]
     Checker = Norminette()
+    file = open("./trace.md", "a")
+    file.write(Checker.trace)
+    file.close()
+    print(Checker.trace)
     send_summary(Checker)
     # send_webhooks(Checker, my_input, int(color))
 
