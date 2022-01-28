@@ -2,9 +2,9 @@ import requests  # noqa We are just importing this to prove the dependency insta
 from norminette import Norminette
 import os
 
-def send_webhooks(Checker: Norminette, adress):
+def send_webhooks(Checker: Norminette, adress, color: int):
     payload = {'embeds': [
-        {"title": "Votre résultat de moulinette :", "color": 100000, "fields": [
+        {"title": "Votre résultat de moulinette :", "color": color, "fields": [
             {"name": "MAJOR", "value": Checker.major, "inline": True},
             {"name": "MINOR", "value": Checker.minor, "inline": True},
             {"name": "INFO", "value": Checker.info, "inline": True}]
@@ -28,10 +28,10 @@ def handle_response(response):
 
 def main():
     my_input = os.environ["INPUT_URL"]
-    color = os.environ["INPUT_color"]
+    color = os.environ["INPUT_COLOR"]
     print("color : " + str(color))
     Checker = Norminette()
-    send_webhooks(Checker, my_input)
+    send_webhooks(Checker, my_input, int(color))
 
     # print(f"::set-output name=myOutput::{my_output}")
 
