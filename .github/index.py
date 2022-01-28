@@ -28,6 +28,8 @@ def handle_response(response):
 
 def main():
     my_input = os.environ["INPUT_URL"]
+    color = os.environ["INPUT_COLOR"]
+    print("color : " + str(color))
     Checker = Norminette()
     send_webhooks(Checker, my_input)
 
