@@ -35,7 +35,6 @@ def send_summary(Checker: Norminette) -> None:
     print(f"::set-output name=SUMMARY::'{JSONEncoder().encode(output)}'")
 
 def main():
-    my_input = os.environ["INPUT_URL"]
     color = os.environ["INPUT_COLOR"]
     Checker = Norminette()
     send_summary(Checker)
