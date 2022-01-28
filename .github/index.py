@@ -38,6 +38,7 @@ def main():
     file.write(Checker.trace)
     file.close()
     print(Checker.trace)
+    
     send_summary(Checker)
     # send_webhooks(Checker, my_input, int(color))
 
