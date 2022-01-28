@@ -13,7 +13,7 @@ class Norminette:
 
     def folder_explorer(self, path) -> None:
         for element in os.listdir(path):
-            print(element)
+            print("element : " + str(element))
             if os.path.isdir(path + "/" + element) and element[0] != ".":
                 self.folder_explorer(path + "/" + element)
             else:
