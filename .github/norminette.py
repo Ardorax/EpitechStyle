@@ -8,13 +8,12 @@ class Norminette:
         self.info = 0
         self.trace = ""
         self.current_file = ""
+        self.file_trace = ""
         self.count_line = -1
         self.folder_explorer(".")
 
     def folder_explorer(self, path) -> None:
-        print("avant la boucle")
         for element in os.listdir(path):
-            print("element : " + str(element))
             if os.path.isdir(path + "/" + element) and element[0] != ".":
                 self.folder_explorer(path + "/" + element)
             else:
@@ -28,15 +27,19 @@ class Norminette:
                     self.error_creator("Wrong file", 0)
 
     def file_explorer(self, path):
-        self.trace += "\n# In file " + path + "\n"
         self.current_file = path
         file = open(path)
         self.count_line = 1
         for line in file:
             self.trailing_spaces(line)
             self.count_line += 1
+
         # End of file
         self.count_line = -1
+        if (self.file_trace != ""):
+            self.trace += "\n# In file " + path + "\n"
+            self.trace += self.file_trace
+            self.file_trace = ""
 
     def error_creator(self, desc: str, type : int):
         error = ["[MAJOR]", "[MINOR]", "[INFO]"]
@@ -48,9 +51,9 @@ class Norminette:
             self.info += 1
 
         if (self.count_line == -1):
-            self.trace += f"{error[type]}: File at {self.current_file} : {desc}\n"
+            self.file_trace += f"{error[type]}: File at {self.current_file} : {desc}\n"
         else:
-            self.trace += f"{error[type]}: At line {self.count_line} : {desc}\n"
+            self.file_trace += f"{error[type]}: At line {self.count_line} : {desc}\n"
 
     # Here import coding style function
     from ardorax import trailing_spaces
