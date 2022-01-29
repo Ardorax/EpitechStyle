@@ -26,6 +26,7 @@ class Norminette:
                 else:
                     self.current_file = path + "/" + element
                     self.wrong_file.append(path + "/" + element)
+                    self.major += 1
 
     def file_explorer(self, path):
         self.current_file = path
