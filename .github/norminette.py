@@ -27,6 +27,7 @@ class Norminette:
                     self.error_creator("Wrong file", 0)
 
     def file_explorer(self, path):
+        self.file_trace = ""
         self.current_file = path
         file = open(path)
         self.count_line = 1
@@ -39,7 +40,6 @@ class Norminette:
         if (self.file_trace != ""):
             self.trace += "\n# In file " + path + "\n"
             self.trace += self.file_trace
-            self.file_trace = ""
 
     def error_creator(self, desc: str, type : int):
         error = ["[MAJOR]", "[MINOR]", "[INFO]"]
