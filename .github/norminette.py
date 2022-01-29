@@ -1,8 +1,4 @@
-import imp
 import os
-from xml.dom.minidom import Element
-
-from pkg_resources import WorkingSet
 
 class Norminette:
     def __init__(self) -> None:
