@@ -7,6 +7,10 @@ def send_summary(Checker: Norminette) -> None:
     output["minor"] = Checker.minor
     output["info"] = Checker.info
     print(f"::set-output name=SUMMARY::{JSONEncoder().encode(output)}")
+    if Checker.major != 0 or Checker.minor != 0:
+        print(f"::set-output name=NORM::1")
+    else:
+        print(f"::set-output name=NORM::0")
 
 def main():
     Checker = Norminette()
