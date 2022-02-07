@@ -557,11 +557,11 @@ class Norms:
                         self.error_nbr += 1
                         self.trace.write("In File " + test.replace("./", "") + "\n")
                         for i in self.major:
-                            self.trace.write("\n" + self.major_color + i)
+                            self.trace.write(self.major_color + "\n" + i)
                         for i in self.minor:
-                            self.trace.write("\n" + self.minor_color + i)
+                            self.trace.write(self.minor_color + "\n" + i)
                         for i in self.info:
-                            self.trace.write("\n" + self.info_color + i)
+                            self.trace.write(self.info_color + "\n" + i)
                         self.trace.write("\n")
                     self.count_major += len(self.major)
                     self.count_minor += len(self.minor)
@@ -578,6 +578,7 @@ class Norms:
             self.error_nbr += 1
             self.trace.write("Bad files :\n")
             for i in self.bad_files:
+                self.count_major += 1
                 self.trace.write(self.major_color + i)
             self.trace.write("")
         if self.error_nbr == 0:
