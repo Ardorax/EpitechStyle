@@ -1,5 +1,6 @@
 from norminette import Norminette
 from json import JSONEncoder
+from abricot import *
 
 def send_summary(Checker: Norminette) -> None:
     output = {}
@@ -20,5 +21,13 @@ def main():
 
     send_summary(Checker)
 
+def launch_abricot():
+    maj, min, inf = abricot()
+    dico = dict()
+    dico["major"] = maj
+    dico["minor"] = min
+    dico["info"] = inf
+    send_summary(dico)
+
 if __name__ == "__main__":
-    main()
+    launch_abricot()
