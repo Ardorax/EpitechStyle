@@ -579,7 +579,7 @@ class Norms:
             self.trace.write("Bad files :\n")
             for i in self.bad_files:
                 self.count_major += 1
-                self.trace.write(self.major_color + i)
+                self.trace.write(self.major_color + "\n" + i)
             self.trace.write("")
         if self.error_nbr == 0:
             self.trace.write("No Coding style error detected : Code clean")
